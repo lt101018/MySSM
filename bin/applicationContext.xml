@@ -10,9 +10,22 @@
 		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.3.xsd">
 
 
-	<bean id="studentMapper" class="com.tengli.dao.impl.StudentDao">
+	<!-- <bean id="studentMapper" class="com.tengli.dao.impl.StudentDao">
 		<property name="sqlSessionFactory" ref="sqlSessionFactory"></property>
+	</bean> -->
+	
+	<!-- <bean id="studentMapper" class="org.mybatis.spring.mapper.MapperFactoryBean">
+		<property name="sqlSessionFactory" ref="sqlSessionFactory"></property>
+		<property name="mapperInterface" value="com.tengli.mapper.StudentMapper"></property>
+	</bean> -->
+	
+	
+	<bean id="mapper" class="org.mybatis.spring.mapper.MapperScannerConfigurer">
+		<property name="sqlSessionFactoryBeanName" value="sqlSessionFactory"></property>
+		<property name="basePackage" value="com.tengli.mapper"></property>
 	</bean>
+	
+	
 	
 	<bean id="studentService" class="com.tengli.service.impl.StudentService">
 		<property name="studentMapper" ref="studentMapper"></property>
@@ -27,7 +40,7 @@
 
 	<bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
 		<property name="dataSource" ref="dataSource"></property>
-		<property name="configLocation" value="classpath:conf.xml"></property>
+		<property name="mapperLocations" value="com/tengli/mapper/studentMapper.xml"></property>
 	</bean>
 
 </beans>

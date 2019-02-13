@@ -1,0 +1,7 @@
+package com.tengli.mapper;
+
+import com.tengli.entity.Student;
+
+public interface StudentMapper {
+	public void addStudent(Student student);
+}

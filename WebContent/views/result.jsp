@@ -8,5 +8,6 @@
 </head>
 <body>
 	Adding success!
+	<a href="/MySSM">return</a>
 </body>
 </html>

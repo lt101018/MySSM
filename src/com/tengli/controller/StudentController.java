@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import com.tengli.entity.Student;
 import com.tengli.service.impl.StudentService;
@@ -26,22 +27,23 @@ public class StudentController{
 		this.studentService = studentService;
 	}
 
-	@RequestMapping("addNewStudent/{stuno}")
-	public String addNewStudent(@PathVariable("stuno") Integer stuNo, Map<String,Object> map) {
+	@RequestMapping("addNewStudent")
+	public String addNewStudent(@RequestParam("name") String stuName, @RequestParam("age") int stuAge, @RequestParam("number") int stuNo, Map<String,Object> map) {
 		Student student = new Student();
-		student.setStuAge(100);
-		student.setStuName("super");
-		student.setStuNo(100);
+		student.setStuAge(stuAge);
+		student.setStuName(stuName);
+		student.setStuNo(stuNo);
 		studentService.addStudent(student);
 		return "result";
 	}
 	
-	@RequestMapping("queryStudentByNo/{stuno}")
-	public String queryStudentByNo(@PathVariable("stuno") Integer stuNo, Map<String,Object> map) {
+	@RequestMapping(value="queryStudentByNo")
+	public String queryStudentByNo(@RequestParam("stuno") Integer stuNo, Map<String,Object> map) {
 		Student student = studentService.queryStudentByNo(stuNo);
 		map.put("student", student);
 		return "queryResult";
 	}
-
+	
+	
 
 }

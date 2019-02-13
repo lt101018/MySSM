@@ -10,5 +10,6 @@
 	${requestScope.student.stuNo } -
 		${requestScope.student.stuName } -
 		${requestScope.student.stuAge } -
+	<a href="/MySSM">return</a>
 </body>
 </html>

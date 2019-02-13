@@ -7,7 +7,18 @@
 <title>Insert title here</title>
 </head>
 <body>
-	<a href="controller/addNewStudent/1">add Student</a>
-	<a href="controller/queryStudentByNo/1">get student number 1</a>
+	Get student information by student number
+	<form action="controller/queryStudentByNo">
+		number:<input name="stuno"  >
+		<input type="submit" value="search">
+	</form>
+	<br/>
+	Add a new student
+	<form action="controller/addNewStudent">
+		number:<input name="number"  >
+		name:<input name="name"  >
+		age:<input name="age"  >
+		<input type="submit" value="post">
+	</form>
 </body>
 </html>

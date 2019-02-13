@@ -7,7 +7,8 @@
 <title>Insert title here</title>
 </head>
 <body>
-	<a href="controller/addNewStudent/1">add Student</a>
-	<a href="controller/queryStudentByNo/1">get student number 1</a>
+	${requestScope.student.stuNo } -
+		${requestScope.student.stuName } -
+		${requestScope.student.stuAge } -
 </body>
 </html>

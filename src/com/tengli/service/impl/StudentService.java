@@ -17,4 +17,9 @@ public class StudentService implements IStudentService {
 		studentMapper.addStudent(student);
 	}
 
+	@Override
+	public Student queryStudentByNo(int stuno) {
+		return studentMapper.queryStudentByStuno(stuno);
+	}
+
 }

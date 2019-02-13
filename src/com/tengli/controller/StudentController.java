@@ -26,14 +26,21 @@ public class StudentController{
 		this.studentService = studentService;
 	}
 
-	@RequestMapping("queryStudentByNo/{stuno}")
-	public String queryStudentByNo(@PathVariable("stuno") Integer stuNo, Map<String,Object> map) {
+	@RequestMapping("addNewStudent/{stuno}")
+	public String addNewStudent(@PathVariable("stuno") Integer stuNo, Map<String,Object> map) {
 		Student student = new Student();
 		student.setStuAge(100);
 		student.setStuName("super");
 		student.setStuNo(100);
 		studentService.addStudent(student);
 		return "result";
+	}
+	
+	@RequestMapping("queryStudentByNo/{stuno}")
+	public String queryStudentByNo(@PathVariable("stuno") Integer stuNo, Map<String,Object> map) {
+		Student student = studentService.queryStudentByNo(stuNo);
+		map.put("student", student);
+		return "queryResult";
 	}
 
 

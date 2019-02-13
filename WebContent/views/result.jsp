@@ -7,6 +7,6 @@
 <title>Insert title here</title>
 </head>
 <body>
-	<a href="controller/queryStudentByNo/1">add Student</a>
+	Adding success!
 </body>
 </html>

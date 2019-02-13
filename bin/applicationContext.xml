@@ -9,6 +9,14 @@
 		http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
 		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.3.xsd">
 
+	<bean  id="config" class="org.springframework.beans.factory.config.PreferencesPlaceholderConfigurer">
+		<property name="locations">
+			<array>
+				<value>classpath:db.properties</value>
+			</array>
+		</property>
+	</bean> 
+
 
 	<!-- <bean id="studentMapper" class="com.tengli.dao.impl.StudentDao">
 		<property name="sqlSessionFactory" ref="sqlSessionFactory"></property>
@@ -26,16 +34,15 @@
 	</bean>
 	
 	
-	
 	<bean id="studentService" class="com.tengli.service.impl.StudentService">
 		<property name="studentMapper" ref="studentMapper"></property>
 	</bean>
 
 	<bean id="dataSource" class="org.apache.commons.dbcp.BasicDataSource">
-		<property name="driverClassName" value="com.mysql.cj.jdbc.Driver" />
-		<property name="url" value="jdbc:mysql://127.0.0.1:3306/testdb?useSSL=false" />
-		<property name="username" value="root" />
-		<property name="password" value="123456" />
+		<property name="driverClassName" value="${driver}" />
+		<property name="url" value="${url}" />
+		<property name="username" value="${username}" />
+		<property name="password" value="${password}" />
 	</bean>
 
 	<bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">

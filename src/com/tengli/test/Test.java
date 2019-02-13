@@ -11,9 +11,9 @@ public class Test {
 		ApplicationContext context = new ClassPathXmlApplicationContext("applicationContext.xml");
 		IStudentService studentService = (IStudentService)context.getBean("studentService");
 		Student student = new Student();
-		student.setStuAge(2);
-		student.setStuName("jack");
-		student.setStuNo(88);
+		student.setStuAge(33);
+		student.setStuName("worker");
+		student.setStuNo(31);
 		studentService.addStudent(student);
 	}
 }

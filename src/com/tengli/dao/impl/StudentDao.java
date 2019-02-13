@@ -15,4 +15,11 @@ public class StudentDao extends SqlSessionDaoSupport implements StudentMapper{
 		stuDao.addStudent(student);
 	}
 
+	@Override
+	public Student queryStudentByStuno(int stuNo) {
+		SqlSession session = super.getSqlSession();
+		StudentMapper stuDao = session.getMapper(StudentMapper.class);
+		return stuDao.queryStudentByStuno(stuNo);
+	}
+
 }

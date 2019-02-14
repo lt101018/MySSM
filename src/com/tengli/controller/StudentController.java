@@ -34,7 +34,7 @@ public class StudentController{
 		student.setStuName(stuName);
 		student.setStuNo(stuNo);
 		studentService.addStudent(student);
-		return "result";
+		return "addResult";
 	}
 	
 	@RequestMapping(value="queryStudentByNo")
@@ -42,6 +42,13 @@ public class StudentController{
 		Student student = studentService.queryStudentByNo(stuNo);
 		map.put("student", student);
 		return "queryResult";
+	}
+	
+	@RequestMapping(value="deleteStudentByNo")
+	public String deleteStudentByNo(@RequestParam("stuno") Integer stuNo, Map<String,Object> map) {
+		Student student = studentService.deleteStudentByNo(stuNo);
+		map.put("student", student);
+		return "deleteResult";
 	}
 	
 	

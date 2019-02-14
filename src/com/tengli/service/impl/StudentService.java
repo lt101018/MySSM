@@ -21,5 +21,12 @@ public class StudentService implements IStudentService {
 	public Student queryStudentByNo(int stuno) {
 		return studentMapper.queryStudentByStuno(stuno);
 	}
+	
+	@Override
+	public Student deleteStudentByNo(int stuno) {
+		Student student = studentMapper.queryStudentByStuno(stuno);
+		studentMapper.deleteStudentByStuno(stuno);
+		return student;
+	}
 
 }

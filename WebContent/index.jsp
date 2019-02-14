@@ -20,5 +20,11 @@
 		age:<input name="age"  >
 		<input type="submit" value="post">
 	</form>
+	Delete student by student number
+	<form action="controller/queryStudentByNo">
+		number:<input name="stuno"  >
+		<input type="submit" value="delete">
+	</form>
+	<br/>
 </body>
 </html>

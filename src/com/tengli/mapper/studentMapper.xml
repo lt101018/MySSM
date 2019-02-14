@@ -13,4 +13,9 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		insert into student(stuno, stuname, stuage) values(#{stuNo},#{stuName},#{stuAge})
 	</insert>
 	
+	<delete id="deleteStudentByStuno" parameterType="int"> 
+		delete from student where stuno = #{stuNo} 
+	</delete>
+	
+	
 </mapper>

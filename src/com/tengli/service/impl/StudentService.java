@@ -14,7 +14,9 @@ public class StudentService implements IStudentService {
 
 	@Override
 	public void addStudent(Student student) {
-		studentMapper.addStudent(student);
+		Student stu = studentMapper.queryStudentByStuno(student.getStuNo());
+		if(stu == null)
+			studentMapper.addStudent(student);
 	}
 
 	@Override

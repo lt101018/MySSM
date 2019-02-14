@@ -7,9 +7,9 @@
 <title>Insert title here</title>
 </head>
 <body>
-	${requestScope.student.stuNo } -
-		${requestScope.student.stuName } -
-		${requestScope.student.stuAge } -
+	Student id: ${requestScope.student.stuNo }<br/>
+	Student Name: ${requestScope.student.stuName }<br/>
+	Student Age: ${requestScope.student.stuAge }<br/>
 	<a href="/MySSM">return</a>
 </body>
 </html>

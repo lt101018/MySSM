@@ -34,8 +34,9 @@ public class StudentController{
 		student.setStuName(stuName);
 		student.setStuNo(stuNo);
 		int flag = studentService.addStudent(student);
-		if(flag == 1) return "addResult";
-		else return "failResult";
+		if(flag == 1) map.put("result","Adding success");
+		else map.put("result","Adding failed. Student existed.");
+		return "result";
 	}
 	
 	@RequestMapping("updateStudentByNo")
@@ -44,23 +45,29 @@ public class StudentController{
 		student.setStuAge(stuAge);
 		student.setStuName(stuName);
 		student.setStuNo(stuNo);
-		student = studentService.updateStudentByNo(student);
-		map.put("student", student);
-		return "updateResult";
+		int flag = studentService.updateStudentByNo(student);
+		if(flag == 1) map.put("result","Updating success");
+		else map.put("result","Updating failed. Student not existed.");
+		return "result";
 	}
 	
 	@RequestMapping(value="queryStudentByNo")
 	public String queryStudentByNo(@RequestParam("stuno") Integer stuNo, Map<String,Object> map) {
 		Student student = studentService.queryStudentByNo(stuNo);
-		map.put("student", student);
-		return "queryResult";
+		if(student != null) {
+			map.put("student", student);
+			return "queryResult";
+		}
+		map.put("result","Querying failed. Student not existed.");
+		return "result";
 	}
 	
 	@RequestMapping(value="deleteStudentByNo")
-	public String deleteStudentByNo(@RequestParam("stuno") Integer stuNo) {
+	public String deleteStudentByNo(@RequestParam("stuno") Integer stuNo, Map<String,Object> map) {
 		int flag = studentService.deleteStudentByNo(stuNo);
-		if (flag == 1) return "deleteResult";
-		return "failResult";
+		if(flag == 1) map.put("result","Deleting success");
+		else map.put("result","Deleting failed. Student not existed.");
+		return "result";
 	}
 	
 	

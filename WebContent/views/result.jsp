@@ -7,10 +7,7 @@
 <title>Insert title here</title>
 </head>
 <body>
-Update student:
-	${requestScope.student.stuNo } -
-		${requestScope.student.stuName } -
-		${requestScope.student.stuAge } -
+	${requestScope.result}<br>
 	<a href="/MySSM">return</a>
 </body>
 </html>

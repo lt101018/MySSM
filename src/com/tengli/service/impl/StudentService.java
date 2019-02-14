@@ -38,9 +38,13 @@ public class StudentService implements IStudentService {
 	}
 
 	@Override
-	public Student updateStudentByNo(Student student) {
-		studentMapper.updateStudentByStuno(student);;
-		return student;
+	public int updateStudentByNo(Student student) {
+		Student stu = studentMapper.queryStudentByStuno(student.getStuNo());
+		if(stu != null) {
+			studentMapper.updateStudentByStuno(student);
+			return 1;
+		}
+		return 0;
 	}
 
 }

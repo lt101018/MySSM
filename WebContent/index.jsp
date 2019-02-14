@@ -7,32 +7,32 @@
 <title>Insert title here</title>
 </head>
 <body>
-	Get student information by student number
+	Search student information by student id
 	<form action="controller/queryStudentByNo">
-		number:<input name="stuno"  >
-		<input type="submit" value="search">
+		id:<input name="stuno"  >
+		<input type="submit" value="Search">
 	</form>
-	<br/>
-	Update student by student number
+	<br/><br/>
+	Update student by student id
 	<form action="controller/updateStudentByNo">
-		number:<input name="number"  >
-		name:<input name="name"  >
+		id:<input name="number"  ><br/>
+		name:<input name="name"  ><br/>
 		age:<input name="age"  >
-		<input type="submit" value="update">
+		<input type="submit" value="Update">
 	</form>
-	<br/>
+	<br/><br/>
 	Add a new student
 	<form action="controller/addNewStudent">
-		number:<input name="number"  >
-		name:<input name="name"  >
+		id:<input name="number"  ><br/>
+		name:<input name="name"  ><br/>
 		age:<input name="age"  >
-		<input type="submit" value="post">
+		<input type="submit" value="Add">
 	</form>
-	<br/>
+	<br/><br/>
 	Delete student by student number
 	<form action="controller/deleteStudentByNo">
-		number:<input name="stuno"  >
-		<input type="submit" value="delete">
+		id:<input name="stuno"  >
+		<input type="submit" value="Delete">
 	</form>
 	<br/>
 </body>

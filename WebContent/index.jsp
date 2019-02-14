@@ -13,6 +13,14 @@
 		<input type="submit" value="search">
 	</form>
 	<br/>
+	Update student by student number
+	<form action="controller/updateStudentByNo">
+		number:<input name="number"  >
+		name:<input name="name"  >
+		age:<input name="age"  >
+		<input type="submit" value="update">
+	</form>
+	<br/>
 	Add a new student
 	<form action="controller/addNewStudent">
 		number:<input name="number"  >
@@ -21,7 +29,7 @@
 		<input type="submit" value="post">
 	</form>
 	Delete student by student number
-	<form action="controller/queryStudentByNo">
+	<form action="controller/deleteStudentByNo">
 		number:<input name="stuno"  >
 		<input type="submit" value="delete">
 	</form>

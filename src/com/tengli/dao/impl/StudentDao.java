@@ -23,10 +23,17 @@ public class StudentDao extends SqlSessionDaoSupport implements StudentMapper{
 	}
 
 	@Override
-	public Student deleteStudentByStuno(int stuNo) {
+	public void deleteStudentByStuno(int stuNo) {
 		SqlSession session = super.getSqlSession();
 		StudentMapper stuDao = session.getMapper(StudentMapper.class);
-		return stuDao.deleteStudentByStuno(stuNo);
+		stuDao.deleteStudentByStuno(stuNo);
+	}
+
+	@Override
+	public void updateStudentByStuno(Student student) {
+		SqlSession session = super.getSqlSession();
+		StudentMapper stuDao = session.getMapper(StudentMapper.class);
+		stuDao.updateStudentByStuno(student);
 	}
 	
 

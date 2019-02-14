@@ -29,4 +29,10 @@ public class StudentService implements IStudentService {
 		return student;
 	}
 
+	@Override
+	public Student updateStudentByNo(Student student) {
+		studentMapper.updateStudentByStuno(student);;
+		return student;
+	}
+
 }

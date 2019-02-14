@@ -37,6 +37,17 @@ public class StudentController{
 		return "addResult";
 	}
 	
+	@RequestMapping("updateStudentByNo")
+	public String updateStudent(@RequestParam("name") String stuName, @RequestParam("age") int stuAge, @RequestParam("number") int stuNo, Map<String,Object> map) {
+		Student student = new Student();
+		student.setStuAge(stuAge);
+		student.setStuName(stuName);
+		student.setStuNo(stuNo);
+		student = studentService.updateStudentByNo(student);
+		map.put("student", student);
+		return "updateResult";
+	}
+	
 	@RequestMapping(value="queryStudentByNo")
 	public String queryStudentByNo(@RequestParam("stuno") Integer stuNo, Map<String,Object> map) {
 		Student student = studentService.queryStudentByNo(stuNo);

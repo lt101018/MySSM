@@ -33,8 +33,9 @@ public class StudentController{
 		student.setStuAge(stuAge);
 		student.setStuName(stuName);
 		student.setStuNo(stuNo);
-		studentService.addStudent(student);
-		return "addResult";
+		int flag = studentService.addStudent(student);
+		if(flag == 1) return "addResult";
+		else return "failResult";
 	}
 	
 	@RequestMapping("updateStudentByNo")
@@ -56,10 +57,10 @@ public class StudentController{
 	}
 	
 	@RequestMapping(value="deleteStudentByNo")
-	public String deleteStudentByNo(@RequestParam("stuno") Integer stuNo, Map<String,Object> map) {
-		Student student = studentService.deleteStudentByNo(stuNo);
-		map.put("student", student);
-		return "deleteResult";
+	public String deleteStudentByNo(@RequestParam("stuno") Integer stuNo) {
+		int flag = studentService.deleteStudentByNo(stuNo);
+		if (flag == 1) return "deleteResult";
+		return "failResult";
 	}
 	
 	

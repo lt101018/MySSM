@@ -7,7 +7,7 @@
 <title>Insert title here</title>
 </head>
 <body>
-	Deleted success.
+	Operation failed.
 	<a href="/MySSM">return</a>
 </body>
 </html>

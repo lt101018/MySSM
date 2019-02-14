@@ -13,10 +13,13 @@ public class StudentService implements IStudentService {
 	}
 
 	@Override
-	public void addStudent(Student student) {
+	public int addStudent(Student student) {
 		Student stu = studentMapper.queryStudentByStuno(student.getStuNo());
-		if(stu == null)
+		if(stu == null) {
 			studentMapper.addStudent(student);
+			return 1;
+		}
+		return 0;
 	}
 
 	@Override
@@ -25,10 +28,13 @@ public class StudentService implements IStudentService {
 	}
 	
 	@Override
-	public Student deleteStudentByNo(int stuno) {
+	public int deleteStudentByNo(int stuno) {
 		Student student = studentMapper.queryStudentByStuno(stuno);
-		studentMapper.deleteStudentByStuno(stuno);
-		return student;
+		if(student != null) {
+			studentMapper.deleteStudentByStuno(stuno);
+			return 1;
+		}
+		return 0;
 	}
 
 	@Override
